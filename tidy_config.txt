@@ -1,0 +1,7 @@
+indent: auto
+indent-with-tabs: yes
+omit-optional-tags: no
+quiet: yes
+tidy-mark: no
+vertical-space: no
+write-back: yes
