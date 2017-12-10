@@ -1,0 +1,3 @@
+{{ $name := .Get 0 }}
+{{ $len := len .Params }}
+<h3 id="{{ $name }}"><span class="member-name">{{ $name }}</span>({{ if gt $len 1}}{{ range $index, $param := after 1 .Params }}{{ $sparam := split $param " " }}<span class="parameter-type">{{ index $sparam 0 }}</span> <var>{{ index $sparam 1 }}</var>{{ if eq (index $sparam 2) "=" }} = <span class="default-value">{{ index $sparam 3 }}</span>{{ end }}{{ if ne (add $index 2) $len }}, {{ end }}{{ end }}{{ end }})</h3>

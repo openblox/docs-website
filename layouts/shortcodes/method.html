@@ -1,0 +1,4 @@
+{{ $name := .Get 1 }}
+{{ $returntype := .Get 0 }}
+{{ $len := len .Params }}
+<h3 id="{{ $name }}"><span class="return-type">{{ $returntype }}</span> <span class="member-name">{{ $name }}</span>({{ if gt $len 2}}{{ range $index, $param := after 2 .Params }}{{ $sparam := split $param " " }}<span class="parameter-type">{{ index $sparam 0 }}</span> <var>{{ index $sparam 1 }}</var>{{ if eq (index $sparam 2) "=" }} = <span class="default-value">{{ index $sparam 3 }}</span>{{ end }}{{ if ne (add $index 3) $len }}, {{ end }}{{ end }}{{ end }})</h3>
