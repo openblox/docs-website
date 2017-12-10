@@ -1,5 +1,7 @@
+image: fedora:latest
+
 before_script:
-  - apt-get update -qq && apt-get install -y hugo tidy
+  - dnf install -y hugo tidy findutils
   - hugo version
   - tidy -version
 
