@@ -3,7 +3,7 @@
 	{{ with .Title }}<h1>{{ . }}</h1>{{ end }}
 	{{ .Content }}
 	<ul>
-		{{ range .Data.Pages }}
+		{{ range .Site.Sections }}
 			<li>
 				<a href="{{ .URL }}">{{ .Title }}</a>
 			</li>
