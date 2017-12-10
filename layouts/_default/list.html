@@ -1,0 +1,13 @@
+{{ define "header" }}{{ partial "header.html" . }}{{ end }}
+{{ define "main" }}
+	{{ with .Title }}<h1>{{ . }}</h1>{{ end }}
+	{{ .Content }}
+	<ul>
+		{{ range .Data.Pages }}
+			<li>
+				<a href="{{ .Permalink }}">{{ .Title }}</a>
+			</li>
+		{{ end }}
+	</ul>
+{{ end }}
+{{ define "footer" }}{{ partial "footer.html" . }}{{ end }}
