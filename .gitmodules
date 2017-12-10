@@ -1,3 +1,6 @@
 [submodule "themes/OpenBlox"]
 	path = themes/OpenBlox
 	url = ../../openblox/openblox-hugo-theme.git
+[submodule "content"]
+	path = content
+	url = ../../openblox/api-documentation.git
