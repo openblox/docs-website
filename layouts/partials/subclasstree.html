@@ -1,0 +1,9 @@
+{{ $classname := index . 0 }}
+{{ $context := index . 1 }}
+<ul>
+	{{ range where $context.Site.Pages "Section" "class" }}
+		{{ if eq .Params.superclass $classname }}
+			<li><a href="{{ .URL }}">{{ .Title }}</a>{{ partial "subclasstree" (slice .Title $context) }}</li>
+		{{ end }}
+	{{ end }}
+</ul>
