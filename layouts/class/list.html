@@ -2,6 +2,13 @@
 {{ define "main" }}
 	{{ with .Title }}<h1>{{ . }}</h1>{{ end }}
 	{{ .Content }}
-	{{ partial "subclasstree" (slice "Instance" .) }}
+	<ul>
+		<li>
+			{{ with .Site.GetPage "page" "class" "Instance.md" }}
+				<a href="{{ .URL }}">{{ .Title }}</a>
+			{{ end }}
+			{{ partial "subclasstree" (slice "Instance" .) }}
+		</li>
+	</ul>
 {{ end }}
 {{ define "footer" }}{{ partial "footer.html" . }}{{ end }}
