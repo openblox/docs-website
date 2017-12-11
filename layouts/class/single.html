@@ -1,14 +1,9 @@
 {{ define "header" }}{{ partial "header.html" . }}{{ end }}
 {{ define "main" }}
 	{{ with .Title }}<h1>{{ . }}</h1>{{ end }}
-	<a href="/">{{ .Site.Title }}</a> » {{ .Title }}
+	<nav>
+		<a href="/">{{ .Site.Title }}</a> » <a href="{{ .CurrentSection.URL }}">{{ .CurrentSection.Title }}</a> » {{ .Title }}
+	</nav>
 	{{ .Content }}
-	<ul>
-		{{ range .Data.Pages }}
-			<li>
-				<a href="{{ .URL }}">{{ .Title }}</a>
-			</li>
-		{{ end }}
-	</ul>
 {{ end }}
 {{ define "footer" }}{{ partial "footer.html" . }}{{ end }}
