@@ -4,6 +4,11 @@
 	<nav>
 		<a href="/">{{ .Site.Title }}</a> » <a href="{{ .CurrentSection.URL }}">{{ .CurrentSection.Title }}</a> » {{ .Title }}
 	</nav>
+	{{ if ne .Title "Instance" }}
+		<nav>
+			Inheritance: {{ partial "superclassbreadcrumbs" (slice .Params.superclass .)}}{{ .Title }}
+		</nav>
+	{{ end }}
 	{{ .Content }}
 {{ end }}
 {{ define "footer" }}{{ partial "footer.html" . }}{{ end }}
