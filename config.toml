@@ -5,6 +5,7 @@ disableKinds = ["RSS"]
 disableHugoGeneratorInject = true
 theme = "OpenBlox"
 uglyURLs = true
+disablePathToLower = true
 pygmentsUseClasses = true
 
 [Languages.en]
