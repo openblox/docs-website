@@ -5,9 +5,9 @@
 		<a href="/">{{ .Site.Title }}</a> » <a href="{{ .CurrentSection.URL }}">{{ .CurrentSection.Title }}</a> » {{ .Title }}
 	</nav>
 	{{ if ne .Title "Instance" }}
-		<nav>
+		<p>
 			Inheritance: {{ partial "superclassbreadcrumbs" (slice .Params.superclass .)}}{{ .Title }}
-		</nav>
+		</p>
 	{{ end }}
 	{{ .Content }}
 {{ end }}
