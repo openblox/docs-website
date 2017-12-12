@@ -4,3 +4,6 @@
 [submodule "content"]
 	path = content
 	url = ../../openblox/api-documentation.git
+[submodule "static/class-icons"]
+	path = static/class-icons
+	url = ../../openblox/class-icons.git
