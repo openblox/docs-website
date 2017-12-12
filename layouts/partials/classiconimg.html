@@ -1,0 +1,3 @@
+{{ $classname := index . 0 }}
+{{ $context := index . 1 }}
+<img src="{{ partial "classicon" (slice $classname $context) }}" class="class-icon" />
