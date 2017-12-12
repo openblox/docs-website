@@ -6,5 +6,5 @@ ol#inheritance > li {
 	display: inline;
 }
 ol#inheritance > li:not(:first-child)::before {
-	content: "›";
+	content: " › ";
 }
