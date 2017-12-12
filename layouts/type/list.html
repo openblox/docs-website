@@ -1,7 +1,7 @@
 {{ define "header" }}{{ partial "header.html" . }}{{ end }}
 {{ define "main" }}
 	{{ with .Title }}<h1>{{ . }}</h1>{{ end }}
-	<a href="/">{{ .Site.Title }}</a> » {{ .Title }}
+	<a href="/">{{ .Site.Title }}</a>
 	{{ .Content }}
 	<ul>
 		{{ range .Data.Pages }}

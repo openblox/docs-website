@@ -2,7 +2,7 @@
 {{ define "main" }}
 	{{ with .Title }}<h1>{{ . }}</h1>{{ end }}
 	<nav>
-		<a href="/">{{ .Site.Title }}</a> » <a href="{{ .CurrentSection.URL }}">{{ .CurrentSection.Title }}</a> » {{ .Title }}
+		<a href="/">{{ .Site.Title }}</a> » <a href="{{ .CurrentSection.URL }}">{{ .CurrentSection.Title }}</a>
 	</nav>
 	{{ .Content }}
 {{ end }}
