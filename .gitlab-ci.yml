@@ -1,7 +1,6 @@
-image: fedora:latest
+image: johnmh/ob-hugo
 
 before_script:
-  - dnf install -y hugo tidy findutils
   - hugo version
   - tidy -version
 
