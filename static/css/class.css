@@ -1,0 +1,10 @@
+ol#inheritance {
+	padding-left: 0;
+	margin-top: 0;
+}
+ol#inheritance > li {
+	display: inline;
+}
+ol#inheritance > li:not(:first-child)::before {
+	content: "›";
+}

@@ -1,15 +1,13 @@
+{{ define "head" }}<link rel="stylesheet" type="text/css" href="/css/class.css" />{{ end }}
 {{ define "header" }}{{ partial "header.html" . }}{{ end }}
 {{ define "main" }}
 	{{ with .Title }}<h1>{{ . }}</h1>{{ end }}
 	<nav>
 		<a href="/">{{ .Site.Title }}</a> » <a href="{{ .CurrentSection.URL }}">{{ .CurrentSection.Title }}</a>
 	</nav>
-	<p id="inheritance">
-		{{ if ne .Title "Instance" }}
-		{{ partial "superclassbreadcrumbs" (slice .Params.superclass .)}}
-		{{ end }}
-		{{ partial "classiconimg" (slice .Title .) }} {{ .Title }}
-	</p>
+	<ol id="inheritance">
+		{{ partial "superclassbreadcrumbs" (slice .Title .) }}
+	</ol>
 	{{ .Content }}
 {{ end }}
 {{ define "footer" }}{{ partial "footer.html" . }}{{ end }}

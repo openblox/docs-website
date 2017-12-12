@@ -3,6 +3,15 @@
 {{ range where $context.Site.Pages "Section" "class" }}
 	{{ if eq .Title $classname }}
 		{{ partial "superclassbreadcrumbs" (slice .Params.superclass .) }}
-		{{ partial "classiconimg" (slice .Title .) }} <a href="{{ .URL }}">{{ .Title }}</a> ›
+		<li>
+			{{ partial "classiconimg" (slice .Title .) }}
+			{{ if ne .Title $context.Title }}
+				<a href="{{ .URL }}">
+			{{ end }}
+			{{ .Title }}
+			{{ if ne .Title $context.Title }}
+				</a>
+			{{ end }}
+		</li>
 	{{ end }}
 {{ end }}
