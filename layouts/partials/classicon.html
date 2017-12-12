@@ -1,7 +1,7 @@
 {{- $classname := index . 0 -}}
 {{ $context := index . 1 }}
 {{- if (fileExists (printf "static/class-icons/%s.png" $classname)) -}}
-/class-icons/{{ $classname }}.png
+{{ $classname }}
 {{- else -}}
 
 {{- range where $context.Site.Pages "Section" "class" -}}

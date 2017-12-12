@@ -1,3 +1,4 @@
 {{ $classname := index . 0 }}
 {{ $context := index . 1 }}
-<img src="{{ partial "classicon" (slice $classname $context) }}" class="class-icon" />
+{{ $iconclass := partial "classicon" (slice $classname $context) }}
+<img alt="{{ $iconclass }} icon" src="/class-icons/{{ $iconclass }}.png" class="class-icon" />

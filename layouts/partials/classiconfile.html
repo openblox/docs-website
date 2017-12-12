@@ -1,0 +1,4 @@
+{{- $classname := index . 0 -}}
+{{- $context := index . 1 -}}
+{{- $iconclass := partial "classicon" (slice $classname $context) -}}
+/class-icons/{{- $iconclass -}}.png{{- "" -}}

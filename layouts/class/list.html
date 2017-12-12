@@ -3,7 +3,7 @@
 	{{ with .Title }}<h1>{{ . }}</h1>{{ end }}
 	{{ .Content }}
 	<ul>
-		<li style="list-style-image:url('{{ partial "classicon" (slice "Instance" .) }}');">
+		<li style="list-style-image:url('{{ partial "classiconfile" (slice "Instance" .) -}}');">
 			{{ with .Site.GetPage "page" "class" "Instance.md" }}
 				<a href="{{ .URL }}">{{ .Title }}</a>
 			{{ end }}

@@ -2,13 +2,13 @@
 {{ define "main" }}
 	{{ with .Title }}<h1>{{ . }}</h1>{{ end }}
 	<nav>
-	    <a href="/">{{ .Site.Title }}</a> » <a href="{{ .CurrentSection.URL }}">{{ .CurrentSection.Title }}</a>
+		<a href="/">{{ .Site.Title }}</a> » <a href="{{ .CurrentSection.URL }}">{{ .CurrentSection.Title }}</a>
 	</nav>
 	<p id="inheritance">
-	    {{ if ne .Title "Instance" }}
-	    {{ partial "superclassbreadcrumbs" (slice .Params.superclass .)}}
-	    {{ end }}
-	    {{ partial "classiconimg" (slice .Title .) }} {{ .Title }}
+		{{ if ne .Title "Instance" }}
+		{{ partial "superclassbreadcrumbs" (slice .Params.superclass .)}}
+		{{ end }}
+		{{ partial "classiconimg" (slice .Title .) }} {{ .Title }}
 	</p>
 	{{ .Content }}
 {{ end }}

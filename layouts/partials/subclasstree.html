@@ -3,7 +3,7 @@
 <ul>
 	{{ range where $context.Site.Pages "Section" "class" }}
 		{{ if eq .Params.superclass $classname }}
-			<li style="list-style-image:url('{{ partial "classicon" (slice .Title .) }}');"><a href="{{ .URL }}">{{ .Title }}</a>{{ partial "subclasstree" (slice .Title $context) }}</li>
+			<li style="list-style-image:url('{{ partial "classiconfile" (slice .Title .) }}');"><a href="{{ .URL }}">{{ .Title }}</a>{{ partial "subclasstree" (slice .Title $context) }}</li>
 		{{ end }}
 	{{ end }}
 </ul>
