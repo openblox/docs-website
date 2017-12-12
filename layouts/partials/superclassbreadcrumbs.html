@@ -3,6 +3,6 @@
 {{ range where $context.Site.Pages "Section" "class" }}
 	{{ if eq .Title $classname }}
 		{{ partial "superclassbreadcrumbs" (slice .Params.superclass .) }}
-		{{ if ne $classname "Instance" }}› {{ end }}<a href="{{ .URL }}">{{ .Title }}</a>
+		<a href="{{ .URL }}">{{ .Title }}</a> ›
 	{{ end }}
 {{ end }}
