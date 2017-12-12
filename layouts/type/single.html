@@ -1,8 +1,13 @@
+{{ define "head" }}<link rel="stylesheet" type="text/css" href="/css/site.css" />{{ end }}
 {{ define "header" }}{{ partial "header.html" . }}{{ end }}
 {{ define "main" }}
 	{{ with .Title }}<h1>{{ . }}</h1>{{ end }}
 	<nav>
-		<a href="/">{{ .Site.Title }}</a> » <a href="{{ .CurrentSection.URL }}">{{ .CurrentSection.Title }}</a>
+		<ol>
+			<li><a href="/">{{ .Site.Title }}</a></li>
+			<li><a href="{{ .CurrentSection.URL }}">{{ .CurrentSection.Title }}</a></li>
+			<li>{{ .Title }}</li>
+		</ol>
 	</nav>
 	{{ .Content }}
 {{ end }}
