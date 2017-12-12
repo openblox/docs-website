@@ -6,7 +6,7 @@
 	</nav>
 	{{ if ne .Title "Instance" }}
 		<p id="inheritance">
-			Inheritance: {{ partial "superclassbreadcrumbs" (slice .Params.superclass .)}}{{ .Title }}
+			Inheritance: {{ partial "superclassbreadcrumbs" (slice .Params.superclass .)}}
 		</p>
 	{{ end }}
 	{{ .Content }}
