@@ -14,25 +14,21 @@ name = "Home"
 url = "/"
 weight = 1
 [[Languages.en.menu.main]]
-name = "Wiki"
-url = "https://wiki.openblox.org"
+name = "Documentation"
+url = "https://docs.openblox.org"
 weight = 2
 [[Languages.en.menu.main]]
 name = "Repositories"
 url = "https://git.openblox.org"
 weight = 3
 [[Languages.en.menu.main]]
-name = "Mailing lists"
-url = "https://lists.openblox.org"
+name = "Doxygen"
+url = "https://doxygen.openblox.org"
 weight = 4
 [[Languages.en.menu.main]]
-name = "Bugzilla"
-url= "https://bugs.openblox.org"
+name = "Mailing lists"
+url = "https://lists.openblox.org"
 weight = 5
-[[Languages.en.menu.main]]
-name = "Jenkins"
-url = "https://ci.openblox.org"
-weight = 6
 
 [Languages.fr]
 [[Languages.fr.menu.main]]
