@@ -73,7 +73,7 @@ foreach my $doxy_compound ($indexDOM->findnodes("//compound")){
         $className = substr($className, 14);
         # Omit _PropertyInfo and any subclasses
         if($className ne "_PropertyInfo" && index($className, "::") == -1){
-            my $classFileName = $classContentPath . $className . ".md";
+            my $classFileName = $classContentPath . "/" . $className . ".md";
             if(-e $classFileName){
                 my $cfh;
                 open($cfh, $classFileName) or die("Failed to open file $classFileName");
