@@ -44,6 +44,8 @@ sub write_strub_file{
     my $doxy_compounddef = $classDOM->findnodes("//compounddef[\@id=\"$doxy_compound->{refid}\"]")->get_node(1);
     my $parentClassName = substr($doxy_compounddef->findvalue("./basecompoundref"), 14);
 
+    print "Generating stub page for $className\n";
+
     my $fh;
     open($fh, ">", $classFileName) or die("Failed to open file $classFileName");
     print $fh "---
