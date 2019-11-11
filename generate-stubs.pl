@@ -36,6 +36,8 @@ sub cppToLuaType{
     if($cppType eq "std::string"){
         return "string";
     }elsif($cppType eq "shared_ptr< Type::Vector3 >"){
+        return "Vector2";
+    }elsif($cppType eq "shared_ptr< Type::Vector3 >"){
         return "Vector3";
     }elsif($cppType eq "shared_ptr< Type::Color3 >"){
         return "Color3";
