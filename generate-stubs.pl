@@ -28,6 +28,8 @@ my $indexDOM;
 # This could be changed to an argument
 my $classContentPath = "content/class/";
 
+print "Checking index.xml\n";
+
 if(-e $xmlindex){
     $indexDOM = XML::LibXML->load_xml(location => $xmlindex) or die("No valid index.xml in the supplied path.");
 }else{
@@ -62,6 +64,8 @@ If you are familiar with this class, consider adding it to the [api documentatio
     close($fh);
     
 }
+
+print "Building stub pages...\n";
 
 foreach my $doxy_compound ($indexDOM->findnodes("//compound")){
     my $className = $doxy_compound->findvalue("./name");
