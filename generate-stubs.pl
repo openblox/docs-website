@@ -45,9 +45,18 @@ sub cppToLuaType{
         return "Instance";
     }elsif($cppType eq "shared_ptr< Type::LuaEnumItem >"){
         return "Enum";
+    }elsif($cppType eq "shared_ptr< Player >"){
+        return "Player";
+    }elsif($cppType eq "bool"){
+        return "bool";
+    }elsif($cppType eq "int"){
+        return "int";
+    }elsif($cppType eq "float"){
+        return "float";
+    }elsif($cppType eq "double"){
+        return "double";
     }else{
-        # This is a very easy way to put C++ types in the docs instead of Lua.. but theoretically shouldn't happen.
-        return $cppType;
+        return "void";
     }
 }
 
@@ -115,13 +124,14 @@ If you are familiar with this class, consider adding it to the [api documentatio
         my $retType = $method->findvalue("./type");
         my $argString = substr($method->findvalue("./argsstring"), 1, -1);
 
-        if(isCamelCase($methodName)){
+        if(isCamelCase($methodName) && ($methodName ne $className) && ($methodName ne "DECLARE_CLASS") && ($methodName ne "DECLARE_LUA_METHOD")){
+            print "$className\::$methodName\n";
             my $convertedType = cppToLuaType($retType);
             push @methodList, "\n{{% method $convertedType $methodName \"$argString\" %}}\n";
         }
     }
 
-    if($#propList > 0){
+    if(scalar @propList > 0){
         print $fh "\n## Properties\n";
 
         foreach my $propInfo (@propList){
@@ -129,7 +139,7 @@ If you are familiar with this class, consider adding it to the [api documentatio
         }
     }
 
-    if($#methodList > 0){
+    if(scalar @methodList > 0){
         print $fh "\n## Methods\n";
 
         foreach my $methodInfo (@methodList){
@@ -137,7 +147,7 @@ If you are familiar with this class, consider adding it to the [api documentatio
         }
     }
 
-    if($#eventList > 0){
+    if(scalar @eventList > 0){
         print $fh "\n## Events\n";
 
         foreach my $eventInfo (@eventList){
