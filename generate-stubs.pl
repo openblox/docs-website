@@ -55,7 +55,10 @@ sub cppToLuaType{
         return "float";
     }elsif($cppType eq "double"){
         return "double";
+    }elsif($cppType eq "void"){
+        return "void";
     }else{
+        print "Unsupported type: $cppType\n";
         return "void";
     }
 }
@@ -125,7 +128,6 @@ If you are familiar with this class, consider adding it to the [api documentatio
         my $argString = substr($method->findvalue("./argsstring"), 1, -1);
 
         if(isCamelCase($methodName) && ($methodName ne $className) && ($methodName ne "DECLARE_CLASS") && ($methodName ne "DECLARE_LUA_METHOD")){
-            print "$className\::$methodName\n";
             my $convertedType = cppToLuaType($retType);
             push @methodList, "\n{{% method $convertedType $methodName \"$argString\" %}}\n";
         }
