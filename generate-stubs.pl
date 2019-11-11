@@ -100,10 +100,10 @@ If you are familiar with this class, consider adding it to the [api documentatio
 
         if(isCamelCase($propName)){
             if($propType eq "shared_ptr< Type::Event >"){
-                push @eventList, $propName;
+                push @eventList, "\n{{% event $propName %}}\n";
             }elsif($propType ~~ @supportedTypes){
                 my $convertedType = cppToLuaType($propType);
-                push @propList, "\n{{% property $convertedType $propName }}\n";
+                push @propList, "\n{{% property $convertedType $propName %}}\n";
             }else{
                 print "Unsupported type: $propType\n";
             }
@@ -115,6 +115,22 @@ If you are familiar with this class, consider adding it to the [api documentatio
 
         foreach my $propInfo (@propList){
             print $fh $propInfo;
+        }
+    }
+
+    if($#methodList > 0){
+        print $fh "\n## Methods\n";
+
+        foreach my $methodInfo (@methodList){
+            print $fh $methodInfo;
+        }
+    }
+
+    if($#eventList > 0){
+        print $fh "\n## Events\n";
+
+        foreach my $eventInfo (@eventList){
+            print $fh $eventInfo;
         }
     }
     
