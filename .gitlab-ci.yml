@@ -6,6 +6,9 @@ before_script:
 
 pages:
   script:
+  - git clone https://git.splentity.com/openblox/libopenblox.git
+  - doxygen libopenblox/Doxyfile
+  - ./generate-stubs.pl docs/xml
   - hugo
   - find public/ -name "*.html" | while read page; do echo "Tidying $page"; tidy -config tidy_config.txt "$page" || true; done
   artifacts:
