@@ -40,7 +40,7 @@ if(-e $xmlindex){
 sub write_strub_file{
     my ($classFileName, $className, $doxy_compound) = @_;
 
-    my $classXMLFile = $xmlpath . "$doxy_compound->{refid}.xml";
+    my $classXMLFile = $xmlpath . "/$doxy_compound->{refid}.xml";
 
     my $classDOM = XML::LibXML->load_xml(location => $classXMLFile) or die("Failed to parse $classXMLFile");
     my $doxy_compounddef = $classDOM->findnodes("//compounddef[\@id=\"$doxy_compound->{refid}\"]")->get_node(1);
