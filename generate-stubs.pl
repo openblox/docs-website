@@ -110,6 +110,17 @@ If you are familiar with this class, consider adding it to the [api documentatio
         }
     }
 
+    foreach my $method ($doxy_compounddef->findnodes("//memberdef[\@kind=\"function\"]")){
+        my $methodName = $method->findvalue("./name");
+        my $retType = $method->findvalue("./type");
+        my $argString = substr($method->findvalue("./argsstring"), 1, -1);
+
+        if(isCamelCase($methodName)){
+            my $convertedType = cppToLuaType($retType);
+            push @methodList, "\n{{% method $convertedType $methodName \"$argString\" %}}\n";
+        }
+    }
+
     if($#propList > 0){
         print $fh "\n## Properties\n";
 
